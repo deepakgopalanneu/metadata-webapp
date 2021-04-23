@@ -6,13 +6,10 @@ public class PropertyException extends Exception{
 
     public PropertyException(String message) {
         super(message);
+        this.message=message;
+        this.description=super.getLocalizedMessage();
     }
 
-    public PropertyException(String message, String desc) {
-        super(message);
-        this.description = desc;
-        this.message = message;
-    }
 
     public String getDescription() {
         return description;

@@ -37,8 +37,9 @@ public class BusinessTermController {
     @PostMapping("/businessterms")
     public ResponseEntity<BusinessTerm> saveBusinessTerms(@RequestBody @NotNull BusinessTerm bterm) throws BusinessTermException {
 
+        System.out.println(bterm.getBusinessDesc());
         BusinessTerm saved =  this.businessTermService.savebusinessTerm(bterm);
-
+        System.out.println(saved.getBusinessDesc());
         if(null!=saved )
         return new ResponseEntity(saved, HttpStatus.valueOf(200));
         else

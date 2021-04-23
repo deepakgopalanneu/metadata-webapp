@@ -1,32 +1,41 @@
 package com.csye7250.project.webapp.entity;
 import com.csye7250.project.webapp.entity.Property;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.util.List;
 
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "businessId")
 @Entity
 @Table(name="BusinessTerm")
 public class BusinessTerm {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="BusinessId")
     private int businessId;
     private String BusinessDesc;
+    @Column(name="Bustype")
     private String BusType;
 
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
-            name = "DomBusBridge",
-            joinColumns = @JoinColumn(name = "dbName"),
-            inverseJoinColumns = @JoinColumn(name = "businessId")
+            name = "DomBusBrdge",
+            joinColumns = @JoinColumn(name = "BusinessId"),
+            inverseJoinColumns = @JoinColumn(name = "DBName")
     )
     private List<Domain> domainList;
 
     @ManyToMany
     @JoinTable(
             name = "BusPropBridge",
-            joinColumns = @JoinColumn(name = "propertyId"),
-            inverseJoinColumns = @JoinColumn(name = "businessId")
+            joinColumns = @JoinColumn(name = "PropertyId"),
+            inverseJoinColumns = @JoinColumn(name = "BusinessId")
     )
     private List<Property> propertyList;
 

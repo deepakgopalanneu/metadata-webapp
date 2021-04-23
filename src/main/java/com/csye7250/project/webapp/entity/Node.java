@@ -8,14 +8,15 @@ import javax.persistence.*;
 @Table(name = "Nodes")
 public class Node {
     @Id
-    @Column(name="nodeId")
+    @Column(name="NodeId")
     private int nodeId;
-    @Column
+    @Column(name="Label")
     private String label;
-    @Column
+    @Column(name="Counts")
     private int counts;
 
 
+    @Column(name="DBName")
     private String dbName;
 
 
@@ -24,7 +25,7 @@ public class Node {
     private List<Property> props;
     
     @OneToMany
-	@JoinColumn(name = "relationshipId")
+	@JoinColumn(name = "RelationId")
     private List<Relationship> relList;
 
     public List<Property> getProps() {

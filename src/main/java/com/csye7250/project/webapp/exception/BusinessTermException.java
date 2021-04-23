@@ -8,13 +8,11 @@ public class BusinessTermException extends Exception{
 
     public BusinessTermException(String message) {
         super(message);
+        this.message=message;
+        this.description=super.getLocalizedMessage();
     }
 
-    public BusinessTermException(String message, String desc) {
-        super(message);
-        this.description = desc;
-        this.message = message;
-    }
+
 
     public String getDescription() {
         return description;

@@ -1,19 +1,19 @@
 package com.csye7250.project.webapp.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Relationship {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="RelationId")
 	private int relationshipId;
-	
+
+	@Column(name="RelDesc")
 	private String relDesc;
-	
+
+	@Column(name="NodeId")
 	private int nodeId;
 
 	public int getRelationshipId() {

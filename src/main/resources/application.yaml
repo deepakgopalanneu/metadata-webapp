@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:sqlserver://localhost:1433;databaseName=metadatadb
+    url: jdbc:sqlserver://localhost:1433;databaseName=GivenDB
     username: SA
     password: Password@123
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver

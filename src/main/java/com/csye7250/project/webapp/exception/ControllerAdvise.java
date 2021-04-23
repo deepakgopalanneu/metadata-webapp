@@ -19,8 +19,9 @@ public class ControllerAdvise extends ResponseEntityExceptionHandler {
      * @return ResponseEntity of type Error
      */
     @ExceptionHandler(BusinessTermException.class)
-    public ResponseEntity<Error> handleUserException(BusinessTermException ex) {
+    public ResponseEntity<Error> handleBusinessTermException(BusinessTermException ex) {
         Error error = new Error();
+        error.setDescription(ex.getDescription());
         error.setErrormessage(ex.getMessage());
         if (error.getErrormessage().equals(CustomStrings.notFound))
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
@@ -29,8 +30,9 @@ public class ControllerAdvise extends ResponseEntityExceptionHandler {
     }
     
     @ExceptionHandler(PropertyException.class)
-    public ResponseEntity<Error> handleUserException(PropertyException ex) {
+    public ResponseEntity<Error> handlePropertyException(PropertyException ex) {
         Error error = new Error();
+        error.setDescription(ex.getDescription());
         error.setErrormessage(ex.getMessage());
         if (error.getErrormessage().equals(CustomStrings.notFound))
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
@@ -39,8 +41,9 @@ public class ControllerAdvise extends ResponseEntityExceptionHandler {
     }
     
     @ExceptionHandler(RelationshipException.class)
-    public ResponseEntity<Error> handleUserException(RelationshipException ex) {
+    public ResponseEntity<Error> handleRelationshipException(RelationshipException ex) {
         Error error = new Error();
+        error.setDescription(ex.getDescription());
         error.setErrormessage(ex.getMessage());
         if (error.getErrormessage().equals(CustomStrings.notFound))
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
