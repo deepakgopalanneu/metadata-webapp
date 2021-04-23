@@ -43,5 +43,12 @@ public class PropertyController {
         return new ResponseEntity<Property>(property, HttpStatus.valueOf(200));
         
     }
-	
+
+    @GetMapping("/properties/dbName/{dbName}")
+    public ResponseEntity<List<Property> > fetchPropertyForDB(@PathVariable String dbName) throws PropertyException {
+
+        List<Property>  property = this.propertyService.fetchPropertyForDB(dbName);
+        return new ResponseEntity<List<Property> >(property, HttpStatus.valueOf(200));
+
+    }
 }

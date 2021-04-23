@@ -14,24 +14,16 @@ import javax.persistence.ManyToMany;
 public class Domain {
 
     @Id
+    @Column(name="DBName")
     private String dbName;
-    @Column
+    @Column(name="DomainName")
     private String domainName;
 
     @OneToMany
     @JoinColumn(name = "nodeId")
     private List<Node> nodeList;
 
-//    @ManyToMany
-//    private List<BusinessTerm> busTermList;
-//
-//    public List<BusinessTerm> getBusTermList() {
-//        return busTermList;
-//    }
-//
-//    public void setBusTermList(List<BusinessTerm> busTermList) {
-//        this.busTermList = busTermList;
-//    }
+
 
     public String getDbName() {
         return dbName;

@@ -6,13 +6,11 @@ public class RelationshipException extends Exception{
 
     public RelationshipException(String message) {
         super(message);
+        this.message=message;
+        this.description=super.getLocalizedMessage();
     }
 
-    public RelationshipException(String message, String desc) {
-        super(message);
-        this.description = desc;
-        this.message = message;
-    }
+
 
     public String getDescription() {
         return description;

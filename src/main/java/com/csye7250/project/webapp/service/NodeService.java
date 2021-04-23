@@ -25,6 +25,6 @@ public class NodeService {
     }
 
     public Node findNodeByDomain(String domainName) {
-        return nodeRepository.findByDomainName(domainName);
+        return nodeRepository.findByDbName(domainName);
     }
 }
