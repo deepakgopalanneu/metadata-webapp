@@ -39,22 +39,6 @@ public class BusinessTerm {
     )
     private List<Property> propertyList;
 
-    public List<Property> getPropertyList() {
-        return propertyList;
-    }
-
-    public void setPropertyList(List<Property> propertyList) {
-        this.propertyList = propertyList;
-    }
-
-    public List<Domain> getDomainList() {
-        return domainList;
-    }
-
-    public void setDomainList(List<Domain> domainList) {
-        this.domainList = domainList;
-    }
-
     public int getBusinessId() {
         return businessId;
     }
@@ -79,5 +63,19 @@ public class BusinessTerm {
         BusType = busType;
     }
 
+    public List<Domain> getDomainList() {
+        return domainList;
+    }
 
+    public void setDomainList(List<Domain> domainList) {
+        this.domainList = domainList;
+    }
+
+    public List<Property> getPropertyList() {
+        return propertyList;
+    }
+
+    public void setPropertyList(List<Property> propertyList) {
+        this.propertyList = propertyList;
+    }
 }

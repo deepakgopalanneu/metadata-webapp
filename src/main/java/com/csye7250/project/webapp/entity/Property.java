@@ -29,14 +29,6 @@ public class Property {
 	@ManyToMany(cascade=CascadeType.ALL, mappedBy="propertyList")
 	private List<BusinessTerm> bTermList ;
 
-	public List<BusinessTerm> getbTermList() {
-		return bTermList;
-	}
-
-	public void setbTermList(List<BusinessTerm> bTermList) {
-		this.bTermList = bTermList;
-	}
-
 	public int getPropertyId() {
 		return propertyId;
 	}
@@ -76,5 +68,12 @@ public class Property {
 	public void setExistingConstraints(String existingConstraints) {
 		this.existingConstraints = existingConstraints;
 	}
-	
+
+	public List<BusinessTerm> getbTermList() {
+		return bTermList;
+	}
+
+	public void setbTermList(List<BusinessTerm> bTermList) {
+		this.bTermList = bTermList;
+	}
 }
