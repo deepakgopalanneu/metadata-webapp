@@ -1,9 +1,15 @@
 package com.csye7250.project.webapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.util.List;
 
 import javax.persistence.*;
 
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "nodeId")
 @Entity
 @Table(name = "Nodes")
 public class Node {
@@ -21,7 +27,7 @@ public class Node {
 
 
     @OneToMany
-	@JoinColumn(name = "propertyId")
+	@JoinColumn(name = "PropertyId")
     private List<Property> props;
     
     @OneToMany
