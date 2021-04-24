@@ -34,8 +34,8 @@ public class BusinessTerm {
     @ManyToMany
     @JoinTable(
             name = "BusPropBridge",
-            joinColumns = @JoinColumn(name = "PropertyId"),
-            inverseJoinColumns = @JoinColumn(name = "BusinessId")
+            joinColumns = @JoinColumn(name = "BusinessId"),
+            inverseJoinColumns = @JoinColumn(name = "PropertyId")
     )
     private List<Property> propertyList;
 
