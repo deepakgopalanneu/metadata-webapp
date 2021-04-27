@@ -14,7 +14,6 @@ import java.util.List;
 public class Property {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="PropertyId")
 	private int propertyId;
 	@Column(name="TechTerm")
@@ -27,7 +26,7 @@ public class Property {
 	private String existingConstraints;
 
 	@ManyToMany(cascade=CascadeType.ALL, mappedBy="propertyList")
-	private List<BusinessTerm> bTermList ;
+	private List<BusinessTerm> bTermList = new ArrayList<>() ;
 
 	public int getPropertyId() {
 		return propertyId;

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @JsonIdentityInfo(
@@ -15,7 +16,6 @@ import java.util.List;
 public class BusinessTerm {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="BusinessId")
     private int businessId;
     private String BusinessDesc;
@@ -29,7 +29,7 @@ public class BusinessTerm {
             joinColumns = @JoinColumn(name = "BusinessId"),
             inverseJoinColumns = @JoinColumn(name = "DBName")
     )
-    private List<Domain> domainList;
+    private List<Domain> domainList = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
@@ -37,7 +37,7 @@ public class BusinessTerm {
             joinColumns = @JoinColumn(name = "BusinessId"),
             inverseJoinColumns = @JoinColumn(name = "PropertyId")
     )
-    private List<Property> propertyList;
+    private List<Property> propertyList = new ArrayList<>();
 
     public int getBusinessId() {
         return businessId;
