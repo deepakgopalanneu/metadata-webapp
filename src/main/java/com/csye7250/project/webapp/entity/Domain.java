@@ -1,14 +1,10 @@
 package com.csye7250.project.webapp.entity;
 
 
+import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
+
 
 @Entity
 public class Domain {
@@ -19,9 +15,9 @@ public class Domain {
     @Column(name="DomainName")
     private String domainName;
 
-    @OneToMany
-    @JoinColumn(name = "nodeId")
-    private List<Node> nodeList;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "DBName")
+    private List<Node> nodeList = new ArrayList<>();
 
 
 

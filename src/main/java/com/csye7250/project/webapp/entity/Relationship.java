@@ -6,7 +6,6 @@ import javax.persistence.*;
 public class Relationship {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="RelationId")
 	private int relationshipId;
 
