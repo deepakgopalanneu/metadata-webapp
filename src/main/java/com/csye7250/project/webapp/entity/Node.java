@@ -3,6 +3,7 @@ package com.csye7250.project.webapp.entity;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -27,12 +28,12 @@ public class Node {
 
 
     @OneToMany
-	@JoinColumn(name = "PropertyId")
-    private List<Property> props;
+	@JoinColumn(name = "NodeId")
+    private List<Property> props = new ArrayList<>();
     
     @OneToMany
-	@JoinColumn(name = "RelationId")
-    private List<Relationship> relList;
+	@JoinColumn(name = "NodeId")
+    private List<Relationship> relList = new ArrayList<>();
 
     public List<Property> getProps() {
 		return props;
