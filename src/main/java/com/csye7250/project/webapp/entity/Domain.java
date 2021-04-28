@@ -16,7 +16,7 @@ public class Domain {
     private String domainName;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "DBName")
+    @JoinColumn(name = "DBName", insertable = false, updatable = false)
     private List<Node> nodeList = new ArrayList<>();
 
 
